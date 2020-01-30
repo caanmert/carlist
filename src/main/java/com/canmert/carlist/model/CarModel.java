@@ -10,9 +10,17 @@ import javax.persistence.ManyToOne;
 
 @Entity(name = "carmodel")
 public class CarModel {
+
+    public CarModel() {
+    }
+
+    public CarModel(CarBrand brandId, String model) {
+        this.brandId = brandId;
+        this.model = model;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-
     private Long id;
 
     @ManyToOne

@@ -8,6 +8,14 @@ import javax.persistence.Id;
 
 @Entity(name = "car")
 public class Car {
+
+    public Car(){}
+    public Car(String brand, String model, int year) {
+        this.brand = brand;
+        this.model = model;
+        this.year = year;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;

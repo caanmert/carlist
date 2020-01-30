@@ -1,17 +1,24 @@
 package com.canmert.carlist.model;
 
-import java.math.BigInteger;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+
 
 @Entity(name = "carbrand")
 public class CarBrand {
+
+    public CarBrand() {}
+
+    public CarBrand(Long id, String brand) {
+        this.id = id;
+        this.brand = brand;
+    }
+    public CarBrand(Long id){
+        this.id = id;
+    }
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;

@@ -4,8 +4,6 @@ import java.util.List;
 
 import com.canmert.carlist.exception.CarNotFoundException;
 import com.canmert.carlist.model.Car;
-import com.canmert.carlist.model.CarBrand;
-import com.canmert.carlist.repository.CarBrandRepository;
 import com.canmert.carlist.repository.CarRepository;
 
 import org.springframework.http.ResponseEntity;
