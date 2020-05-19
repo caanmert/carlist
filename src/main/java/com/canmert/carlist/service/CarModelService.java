@@ -18,7 +18,15 @@ public class CarModelService {
         this.carModelRepository = carModelRepository;
     }
 
-    public List<CarModel> getByBrandId(CarBrand brandId) {
+    public List<CarModel> getByBrandId(Long brandId) {
         return carModelRepository.findByBrandId(brandId);
+    }
+
+    public List<CarModel> getAll(){
+        return carModelRepository.findAll();
+    }
+
+    public CarModel create(CarModel model,Long brandId){
+        return carModelRepository.save(model);
     }
 }

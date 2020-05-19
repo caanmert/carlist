@@ -43,8 +43,19 @@ public class CarRestController {
         return carBrandService.getAll();
     }
 
+    @PostMapping(value = "/brands")
+    public CarBrand createCarBrand(@Valid @RequestBody CarBrand carBrand) {
+
+        return carBrandService.create(carBrand);
+    }
+
+    @GetMapping(value = "/models", produces = "application/json")
+    public List<CarModel> getAllModels() {
+        return carModelService.getAll();
+    }
+
     @GetMapping(value = "/models/{brandId}", produces = "application/json")
-    public List<CarModel> getModelsByBrandId(@PathVariable CarBrand brandId) {
+    public List<CarModel> getModelsByBrandId(@PathVariable Long brandId) {
         return carModelService.getByBrandId(brandId);
     }
 
@@ -62,6 +73,11 @@ public class CarRestController {
     public Car createCar(@Valid @RequestBody Car car) {
 
         return carService.create(car);
+    }
+
+    @PostMapping(value = "/models/{brandId}")
+    public CarModel createModel(@Valid @RequestBody CarModel model,@PathVariable Long brandId){
+        return carModelService.create(model,brandId);
     }
 
     @PutMapping(value = "/cars/{id}")

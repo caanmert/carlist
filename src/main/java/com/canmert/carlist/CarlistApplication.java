@@ -38,17 +38,19 @@ public class CarlistApplication {
 	CommandLineRunner runner() {
 		return args -> {
 
-			carRepository.save(new Car("Bmw", "3 series", 2006));
-			carRepository.save(new Car("Bmw", "5 series", 2003));
+			/*carRepository.save(new Car(new CarBrand("Bmw"),new CarModel("3 series"),2007));
+			carRepository.save(new Car(1L, 9L, 2003));
 			carRepository.save(new Car("Audi", "a4", 2009));
 			carRepository.save(new Car("Toyota", "Corolla", 2002));
 			carRepository.save(new Car("Ford", "Fiesta", 2012));
 			carRepository.save(new Car("Ford", "Mustang", 2012));
+			carRepository.save(new Car(3L,9L,2004));
 
 			carBrandRepository.save(new CarBrand(1L, "Audi"));
 			carBrandRepository.save(new CarBrand(2L, "BMW"));
 			carBrandRepository.save(new CarBrand(3L, "Ford"));
 			carBrandRepository.save(new CarBrand(4L, "Mercedes-Benz"));
+			
 
 			carModelRepository.save(new CarModel(new CarBrand(7L), "A3"));
 			carModelRepository.save(new CarModel(new CarBrand(7L), "A4"));
@@ -67,8 +69,13 @@ public class CarlistApplication {
 			carModelRepository.save(new CarModel(new CarBrand(10L), "C-200"));
 			carModelRepository.save(new CarModel(new CarBrand(10L), "E-200"));
 
-			userRepository.save(new User("admin","$2a$04$KNLUwOWHVQZVpXyMBNc7JOzbLiBjb9Tk9bP7KNcPI12ICuvzXQQKG"));
+			userRepository.save(new User("admin","$2a$04$KNLUwOWHVQZVpXyMBNc7JOzbLiBjb9Tk9bP7KNcPI12ICuvzXQQKG"));*/
+			carBrandRepository.save(new CarBrand("Audi"));
+			carBrandRepository.save(new CarBrand("BMW"));
+			carBrandRepository.save(new CarBrand("Ford"));
+			carBrandRepository.save(new CarBrand("Mercedes-Benz"));
 
+			//carModelRepository.save(new CarModel(2L,"3 series");
 		};
 	}
 

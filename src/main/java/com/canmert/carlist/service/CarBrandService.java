@@ -20,4 +20,9 @@ public class CarBrandService {
     public List<CarBrand> getAll() {
         return carBrandRepository.findAll();
     }
+
+    public CarBrand create(CarBrand carBrand) {
+        return carBrandRepository.save(carBrand);
+    }
+
 }

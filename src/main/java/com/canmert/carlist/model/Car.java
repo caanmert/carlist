@@ -5,28 +5,33 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 @Entity(name = "car")
 public class Car {
 
     public Car(){}
-    public Car(String brand, String model, int year) {
+   /* public Car(CarBrand brand, CarModel model, int year) {
         this.brand = brand;
         this.model = model;
         this.year = year;
-    }
+    }*/
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(nullable = false)
-    private String brand;
+    @OneToOne
+    @JoinColumn(name = "brand_id")
+    private CarBrand brand;
 
-    @Column(nullable = false)
-    private String model;
+    @OneToOne
+    @JoinColumn(name = "model_id")
+    //@Column(nullable = false)
+    private CarModel model;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private int year;
 
     @Column(nullable = true)
@@ -40,19 +45,19 @@ public class Car {
         this.id = id;
     }
 
-    public String getBrand() {
+    public CarBrand getBrand() {
         return this.brand;
     }
 
-    public void setBrand(String brand) {
+    public void setBrand(CarBrand brand) {
         this.brand = brand;
     }
 
-    public String getModel() {
+    public CarModel getModel() {
         return this.model;
     }
 
-    public void setModel(String model) {
+    public void setModel(CarModel model) {
         this.model = model;
     }
 

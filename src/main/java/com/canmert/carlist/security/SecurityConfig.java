@@ -46,6 +46,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
   public void configure(HttpSecurity http) throws Exception {
     http.csrf().disable().cors().and().authorizeRequests().antMatchers(HttpMethod.GET,"/cars/**").permitAll()                                                                                        
         .antMatchers(HttpMethod.POST,"/login").permitAll()
+        .antMatchers(HttpMethod.GET,"/brands").permitAll()
+        .antMatchers(HttpMethod.GET,"/models/**").permitAll()
+        .antMatchers(HttpMethod.POST,"/models/**").permitAll()
+        .antMatchers(HttpMethod.POST,"/**/models").permitAll()
+        .antMatchers(HttpMethod.GET,"/**/models").permitAll()
+        .antMatchers(HttpMethod.POST,"/cars").permitAll()
+        .antMatchers(HttpMethod.POST,"/brands").permitAll()
+      
+        
+
+        
         .anyRequest().authenticated().and()
         .addFilterBefore(new LoginFilter("/login", authenticationManager()), UsernamePasswordAuthenticationFilter.class)
         .addFilterBefore(new AuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
