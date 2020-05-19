@@ -52,24 +52,24 @@ public class CarlistApplication {
 			carBrandRepository.save(new CarBrand("Mercedes-Benz"));
 			carBrandRepository.save(new CarBrand("Opel"));
 
-			/*carModelRepository.save(new CarModel(new CarBrand(7L), "A3"));
-			carModelRepository.save(new CarModel(new CarBrand(7L), "A4"));
-			carModelRepository.save(new CarModel(new CarBrand(7L), "A5"));
-			carModelRepository.save(new CarModel(new CarBrand(7L), "A6"));
-			carModelRepository.save(new CarModel(new CarBrand(7L), "A7"));
+			carModelRepository.save(new CarModel(new CarBrand(1L), "A3"));
+			carModelRepository.save(new CarModel(new CarBrand(1L), "A4"));
+			carModelRepository.save(new CarModel(new CarBrand(1L), "A5"));
+			carModelRepository.save(new CarModel(new CarBrand(1L), "A6"));
+			carModelRepository.save(new CarModel(new CarBrand(1L), "A7"));
 
-			carModelRepository.save(new CarModel(new CarBrand(8L), "3 series"));
-			carModelRepository.save(new CarModel(new CarBrand(8L), "4 series"));
-			carModelRepository.save(new CarModel(new CarBrand(8L), "5 series"));
-			carModelRepository.save(new CarModel(new CarBrand(8L), "6 series"));
+			carModelRepository.save(new CarModel(new CarBrand(2L), "3 series"));
+			carModelRepository.save(new CarModel(new CarBrand(2L), "4 series"));
+			carModelRepository.save(new CarModel(new CarBrand(2L), "5 series"));
+			carModelRepository.save(new CarModel(new CarBrand(2L), "6 series"));
 
-			carModelRepository.save(new CarModel(new CarBrand(9L), "Fiesta"));
-			carModelRepository.save(new CarModel(new CarBrand(9L), "Mustang"));
+			carModelRepository.save(new CarModel(new CarBrand(3L), "Fiesta"));
+			carModelRepository.save(new CarModel(new CarBrand(3L), "Mustang"));
 
-			carModelRepository.save(new CarModel(new CarBrand(10L), "C-200"));
-			carModelRepository.save(new CarModel(new CarBrand(10L), "E-200"));
+			carModelRepository.save(new CarModel(new CarBrand(4L), "C-200"));
+			carModelRepository.save(new CarModel(new CarBrand(4L), "E-200"));
 
-			userRepository.save(new User("admin","$2a$04$KNLUwOWHVQZVpXyMBNc7JOzbLiBjb9Tk9bP7KNcPI12ICuvzXQQKG"));
+			userRepository.save(new User("admin","sds","$2a$04$KNLUwOWHVQZVpXyMBNc7JOzbLiBjb9Tk9bP7KNcPI12ICuvzXQQKG"));
 
 		};
 	}

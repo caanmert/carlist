@@ -29,7 +29,6 @@ public class CarBrand {
     private Long id;
     
     @Column(nullable = true)
-    @JsonIgnore
     private String brand;
 
     @OneToMany(mappedBy = "brand") 

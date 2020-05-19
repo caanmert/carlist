@@ -2,6 +2,7 @@ package com.canmert.carlist.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -17,8 +18,8 @@ public class CarModel {
     public CarModel() {
     }
 
-    public CarModel(CarBrand brandId, String model) {
-        this.brandId = brandId;
+    public CarModel(CarBrand brand, String model) {
+        this.brand = brand;
         this.model = model;
     }
     public CarModel(Long id){
@@ -29,10 +30,9 @@ public class CarModel {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @ManyToOne
+   @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnore
-    @JoinColumn(name = "brand_id")
-    private CarBrand brandId;
+    private CarBrand brand;
 
     private String model;
 
@@ -45,12 +45,12 @@ public class CarModel {
         this.id = id;
     }
 
-    public CarBrand getBrandId() {
-        return this.brandId;
+    public CarBrand getBrand() {
+        return this.brand;
     }
 
-    public void setBrandId(CarBrand brandId) {
-        this.brandId = brandId;
+    public void setBrand(CarBrand brand) {
+        this.brand = brand;
     }
 
     public String getModel() {
@@ -66,7 +66,7 @@ public class CarModel {
     public String toString() {
         return "{" +
             " id='" + getId() + "'" +
-            ", brandId='" + getBrandId() + "'" +
+            ", brand='" + getBrand() + "'" +
             ", model='" + getModel() + "'" +
             "}";
     }

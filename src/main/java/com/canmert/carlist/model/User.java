@@ -6,25 +6,33 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-/**
- * Admin
- */
+
 @Entity(name = "users")
 public class User {
+
+    public User() {}
+
+
+    public User(String username, String email, String password) {
+        this.username = username;
+        this.email = email;
+        this.password = password;
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(nullable = false)
     private Long id;
+
     @Column(nullable = false)
     private String username;
+
+    @Column(nullable = false)
+    private String email;
+
     @Column(nullable = false)
     private String password;
 
-    public User(String username, String password) {
-        this.username = username;
-        this.password = password;
-    }
 
     public Long getId() {
         return this.id;
@@ -42,6 +50,14 @@ public class User {
         this.username = username;
     }
 
+    public String getEmail() {
+        return this.email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public String getPassword() {
         return this.password;
     }
@@ -50,8 +66,35 @@ public class User {
         this.password = password;
     }
 
-    public User() {
+    public User id(Long id) {
+        this.id = id;
+        return this;
     }
+
+    public User username(String username) {
+        this.username = username;
+        return this;
+    }
+
+    public User email(String email) {
+        this.email = email;
+        return this;
+    }
+
+    public User password(String password) {
+        this.password = password;
+        return this;
+    }
+
+    @Override
+    public String toString() {
+        return "{" +
+            " id='" + getId() + "'" +
+            ", username='" + getUsername() + "'" +
+            ", email='" + getEmail() + "'" +
+            ", password='" + getPassword() + "'" +
+            "}";
+    } 
 
 }
 

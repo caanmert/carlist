@@ -5,10 +5,6 @@ import java.util.List;
 import javax.validation.Valid;
 
 import com.canmert.carlist.model.Car;
-import com.canmert.carlist.model.CarBrand;
-import com.canmert.carlist.model.CarModel;
-import com.canmert.carlist.service.CarBrandService;
-import com.canmert.carlist.service.CarModelService;
 import com.canmert.carlist.service.CarService;
 
 import org.springframework.http.ResponseEntity;
@@ -26,37 +22,12 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
-public class CarRestController {
+public class CarController {
 
     private CarService carService;
-    private CarBrandService carBrandService;
-    private CarModelService carModelService;
 
-    public CarRestController(CarService carService, CarBrandService carBrandService, CarModelService carModelService) {
+    public CarController(CarService carService) {
         this.carService = carService;
-        this.carBrandService = carBrandService;
-        this.carModelService = carModelService;
-    }
-
-    @GetMapping(value = "/brands", produces = "application/json")
-    public List<CarBrand> getAllBrands() {
-        return carBrandService.getAll();
-    }
-
-    @PostMapping(value = "/brands")
-    public CarBrand createCarBrand(@Valid @RequestBody CarBrand carBrand) {
-
-        return carBrandService.create(carBrand);
-    }
-
-    @GetMapping(value = "/models", produces = "application/json")
-    public List<CarModel> getAllModels() {
-        return carModelService.getAll();
-    }
-
-    @GetMapping(value = "/models/{brandId}", produces = "application/json")
-    public List<CarModel> getModelsByBrandId(@PathVariable Long brandId) {
-        return carModelService.getByBrandId(brandId);
     }
 
     @GetMapping(value = "/cars", produces = "application/json")
@@ -73,11 +44,6 @@ public class CarRestController {
     public Car createCar(@Valid @RequestBody Car car) {
 
         return carService.create(car);
-    }
-
-    @PostMapping(value = "/models/{brandId}")
-    public CarModel createModel(@Valid @RequestBody CarModel model,@PathVariable Long brandId){
-        return carModelService.create(model,brandId);
     }
 
     @PutMapping(value = "/cars/{id}")
