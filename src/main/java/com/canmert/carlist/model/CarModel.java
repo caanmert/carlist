@@ -7,8 +7,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
-import com.fasterxml.jackson.annotation.JsonIdentityReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity(name = "carmodel")
@@ -17,21 +17,23 @@ public class CarModel {
     public CarModel() {
     }
 
-    public CarModel(CarBrand brand, String model) {
-        this.brand = brand;
+    public CarModel(CarBrand brandId, String model) {
+        this.brandId = brandId;
         this.model = model;
+    }
+    public CarModel(Long id){
+        this.id = id;
     }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @ManyToOne
-    //@JsonIdentityReference(alwaysAsId = true)
+    @JsonIgnore
     @JoinColumn(name = "brand_id")
-    private CarBrand brand;
+    private CarBrand brandId;
 
-    @Column(nullable = true)
     private String model;
 
 
@@ -43,11 +45,12 @@ public class CarModel {
         this.id = id;
     }
 
-    public CarBrand getBrand(){
-        return this.brand;
+    public CarBrand getBrandId() {
+        return this.brandId;
     }
-    public void setBrand(CarBrand brand){
-        this.brand = brand;
+
+    public void setBrandId(CarBrand brandId) {
+        this.brandId = brandId;
     }
 
     public String getModel() {
@@ -63,10 +66,10 @@ public class CarModel {
     public String toString() {
         return "{" +
             " id='" + getId() + "'" +
-            ", brand='" + getBrand() + "'" +
+            ", brandId='" + getBrandId() + "'" +
             ", model='" + getModel() + "'" +
             "}";
     }
- 
+   
 
 }

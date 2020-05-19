@@ -1,7 +1,9 @@
 package com.canmert.carlist.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -12,23 +14,22 @@ import javax.persistence.OneToOne;
 public class Car {
 
     public Car(){}
-   /* public Car(CarBrand brand, CarModel model, int year) {
+
+    public Car(CarBrand brand, CarModel model, int year, String transmission) {
         this.brand = brand;
         this.model = model;
         this.year = year;
-    }*/
+        this.transmission = transmission;
+    }
+    
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @OneToOne
-    @JoinColumn(name = "brand_id")
     private CarBrand brand;
-
-    @OneToOne
-    @JoinColumn(name = "model_id")
-    //@Column(nullable = false)
+    @OneToOne 
     private CarModel model;
 
     @Column(nullable = true)
@@ -36,6 +37,7 @@ public class Car {
 
     @Column(nullable = true)
     private String transmission;
+
 
     public Long getId() {
         return this.id;
@@ -76,11 +78,18 @@ public class Car {
     public void setTransmission(String transmission) {
         this.transmission = transmission;
     }
+    
 
     @Override
     public String toString() {
-        return "{" + " id='" + getId() + "'" + ", brand='" + getBrand() + "'" + ", model='" + getModel() + "'"
-                + ", year='" + getYear() + "'" + ", transmission='" + getTransmission() + "'" + "}";
+        return "{" +
+            " id='" + getId() + "'" +
+            ", brand='" + getBrand() + "'" +
+            ", model='" + getModel() + "'" +
+            ", year='" + getYear() + "'" +
+            ", transmission='" + getTransmission() + "'" +
+            "}";
     }
+    
 
 }

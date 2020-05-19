@@ -18,7 +18,7 @@ public class CarBrand {
 
     public CarBrand() {}
 
-    public CarBrand( String brand) {
+    public CarBrand(String brand) {
         this.brand = brand;
     }
     public CarBrand(Long id){
@@ -27,7 +27,6 @@ public class CarBrand {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
     
     @Column(nullable = true)
     @JsonIgnore
