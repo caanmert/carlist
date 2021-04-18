@@ -69,7 +69,7 @@ public class CarlistApplication {
 			carModelRepository.save(new CarModel(new CarBrand(4L), "C-200"));
 			carModelRepository.save(new CarModel(new CarBrand(4L), "E-200"));
 
-			userRepository.save(new User("admin","sds","$2a$04$KNLUwOWHVQZVpXyMBNc7JOzbLiBjb9Tk9bP7KNcPI12ICuvzXQQKG"));
+			userRepository.save(new User("admin","jaerka@gmail.com","$2a$04$KNLUwOWHVQZVpXyMBNc7JOzbLiBjb9Tk9bP7KNcPI12ICuvzXQQKG",true));
 
 		};
 	}

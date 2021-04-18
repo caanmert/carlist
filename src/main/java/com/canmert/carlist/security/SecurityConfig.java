@@ -32,10 +32,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
   @Autowired
   private UserDetailsServiceImpl customUserDetailsService;
 
-  @Bean
+  /*@Bean
   public PasswordEncoder passwordEncoder() {
     return new BCryptPasswordEncoder();
-  }
+  }*/
 
   @Autowired
   public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
@@ -46,13 +46,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
   public void configure(HttpSecurity http) throws Exception {
     http.csrf().disable().cors().and().authorizeRequests().antMatchers(HttpMethod.GET,"/cars/**").permitAll()                                                                                        
         .antMatchers(HttpMethod.POST,"/login").permitAll()
-        .antMatchers(HttpMethod.GET,"/brands").permitAll()
+        //.antMatchers(HttpMethod.GET,"/brands").permitAll()
         .antMatchers(HttpMethod.GET,"/models/**").permitAll()
         .antMatchers(HttpMethod.POST,"/models/**").permitAll()
         .antMatchers(HttpMethod.POST,"/**/models").permitAll()
         .antMatchers(HttpMethod.GET,"/**/models").permitAll()
         .antMatchers(HttpMethod.POST,"/cars").permitAll()
         .antMatchers(HttpMethod.POST,"/brands").permitAll()
+        .antMatchers(HttpMethod.GET,"/register").permitAll()
+        .antMatchers(HttpMethod.POST,"/register").permitAll()
+        .antMatchers(HttpMethod.GET,"/register/**").permitAll()
+        .antMatchers(HttpMethod.POST,"/register/**").permitAll()
+        
       
         
 
